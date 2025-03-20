@@ -5,7 +5,11 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        while val in nums:
-            nums.remove(val)
-        return len(nums)
+        k = 0  # Position for non-val elements
         
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k] = nums[i]  # Move non-val elements forward
+                k += 1
+        
+        return k  # New length of the modified array
