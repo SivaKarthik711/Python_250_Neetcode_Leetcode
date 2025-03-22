@@ -1,16 +1,11 @@
-class MyHashMap(object):
-    #class variables are writen here
-    def __init__(self, intial_size):
+class MyHashMap:
+    def __init__(self, initial_size=10):
+        self.size = initial_size
+        self.bucket = [[] for _ in range(initial_size)]
 
-        self.size = intial_size #instance variable
-
-        self.bucket = [[] for _ in range(intial_size)]
- 
-    
     def _hash(self, key):
-        return hash(key) % self.size #shared instance variable
+        return hash(key) % self.size  # Converts string or int key into a valid index
 
-        
     def put(self, key, value):
         index = self._hash(key)
         for i, (k, v) in enumerate(self.bucket[index]):
@@ -32,10 +27,3 @@ class MyHashMap(object):
             if k == key:
                 del self.bucket[index][i]  # Remove the key-value pair
                 return
-
-
-# Your MyHashMap object will be instantiated and called as such:
-# obj = MyHashMap()
-# obj.put(key,value)
-# param_2 = obj.get(key)
-# obj.remove(key)
