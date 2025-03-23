@@ -4,9 +4,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        ans = []
-
-        for i in nums:
-            ans.append(i)
-        ans = ans + nums
-        return ans        
+        ans = nums
+        ans.extend(nums)
+        return ans
