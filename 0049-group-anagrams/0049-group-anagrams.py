@@ -6,13 +6,13 @@ class Solution(object):
         """
         strs_dict = {}
 
-        for s in strs:
+        for s in strs: #time complexity is O(n)
 
-            sorted_s = ''.join(sorted(s))
+            sorted_s = ''.join(sorted(s)) #time complexity is O(n)* O(nlogn)
 
             if sorted_s not in strs_dict:
                 strs_dict[sorted_s] = [s]
             else:
                 strs_dict[sorted_s].append(s)
         
-        result list(strs_dict.values())
+        return list(strs_dict.values()) #total time complexity is O(n)* O(n)* O(nlogn)
