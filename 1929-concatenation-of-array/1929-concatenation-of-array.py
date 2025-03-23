@@ -5,5 +5,5 @@ class Solution(object):
         :rtype: List[int]
         """
         ans = nums
-        ans.extend(nums)
+        ans += nums
         return ans
